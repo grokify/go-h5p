@@ -1,4 +1,10 @@
-# go-h5p
+# H5P Go SDK
+
+[![Build Status][build-status-svg]][build-status-url]
+[![Lint Status][lint-status-svg]][lint-status-url]
+[![Go Report Card][goreport-svg]][goreport-url]
+[![Docs][docs-godoc-svg]][docs-godoc-url]
+[![License][license-svg]][license-url]
 
 A comprehensive Go library for creating, manipulating, and validating H5P (HTML5 Package) content, with full support for the official H5P file format and schemas.
 
@@ -260,6 +266,8 @@ The library includes official H5P schemas in the `schemas/` directory:
 - `schemas/multichoice-semantics.json` - Official H5P MultiChoice schema
 - `schemas/multichoice_types.go` - Go struct implementation
 
+These are defined on the [H5P GitHub organization](https://github.com/h5p/h5p-multi-choice/blob/master/semantics.json).
+
 ### Question Types
 
 Currently supported question types:
@@ -366,3 +374,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] H5P content migration tools
 - [ ] Integration with H5P hosting platforms
 - [ ] Performance optimizations for large content packages
+
+ [build-status-svg]: https://github.com/grokify/go-h5p/actions/workflows/ci.yaml/badge.svg?branch=main
+ [build-status-url]: https://github.com/grokify/go-h5p/actions/workflows/ci.yaml
+ [lint-status-svg]: https://github.com/grokify/go-h5p/actions/workflows/lint.yaml/badge.svg?branch=main
+ [lint-status-url]: https://github.com/grokify/go-h5p/actions/workflows/lint.yaml
+ [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-h5p
+ [goreport-url]: https://goreportcard.com/report/github.com/grokify/go-h5p
+ [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/go-h5p
+ [docs-godoc-url]: https://pkg.go.dev/github.com/grokify/go-h5p
+ [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
+ [license-url]: https://github.com/grokify/go-h5p/blob/master/LICENSE
+ [used-by-svg]: https://sourcegraph.com/github.com/grokify/go-h5p/-/badge.svg
+ [used-by-url]: https://sourcegraph.com/github.com/grokify/go-h5p?badge
+ 
