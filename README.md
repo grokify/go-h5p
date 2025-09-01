@@ -266,7 +266,10 @@ The library includes official H5P schemas in the `schemas/` directory:
 - `schemas/multichoice-semantics.json` - Official H5P MultiChoice schema
 - `schemas/multichoice_types.go` - Go struct implementation
 
-These are defined on the [H5P GitHub organization](https://github.com/h5p/h5p-multi-choice/blob/master/semantics.json).
+These are defined by H5P here:
+
+1. [H5P `semantics.json` on GitHub](https://github.com/h5p/h5p-multi-choice/blob/master/semantics.json).
+1. [H5P `github.com/h5p/h5p-multi-choice` project](https://github.com/h5p/h5p-multi-choice)
 
 ### Question Types
 
@@ -387,4 +390,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
  [license-url]: https://github.com/grokify/go-h5p/blob/master/LICENSE
  [used-by-svg]: https://sourcegraph.com/github.com/grokify/go-h5p/-/badge.svg
  [used-by-url]: https://sourcegraph.com/github.com/grokify/go-h5p?badge
- 
