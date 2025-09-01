@@ -160,7 +160,6 @@ func TestMultiChoiceParamsValidation(t *testing.T) {
 }
 
 func TestQuestionSetWithTypedQuestions(t *testing.T) {
-
 	// Create typed MultiChoice question
 	params := &schemas.MultiChoiceParams{
 		Question: "What is 2 + 2?",
@@ -176,7 +175,7 @@ func TestQuestionSetWithTypedQuestions(t *testing.T) {
 	}
 
 	mcQuestion := NewMultiChoiceQuestion(params)
-	
+
 	// Add to question set
 	qs := &QuestionSet{
 		Title:     "Math Quiz",

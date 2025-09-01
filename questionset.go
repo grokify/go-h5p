@@ -5,18 +5,18 @@ import (
 )
 
 type QuestionSet struct {
-	ProgressType     string           `json:"progressType,omitempty"`
-	PassPercentage   int              `json:"passPercentage,omitempty"`
-	BackgroundImage  *BackgroundImage `json:"backgroundImage,omitempty"`
-	Questions        []Question       `json:"questions"`
-	ShowIntroPage    bool             `json:"showIntroPage,omitempty"`
-	StartButtonText  string           `json:"startButtonText,omitempty"`
-	Introduction     string           `json:"introduction,omitempty"`
-	Title            string           `json:"title,omitempty"`
-	ShowResultPage   bool             `json:"showResultPage,omitempty"`
-	Message          string           `json:"message,omitempty"`
-	SolutionButtonText string         `json:"solutionButtonText,omitempty"`
-	OverallFeedback  []FeedbackRange  `json:"overallFeedback,omitempty"`
+	ProgressType       string           `json:"progressType,omitempty"`
+	PassPercentage     int              `json:"passPercentage,omitempty"`
+	BackgroundImage    *BackgroundImage `json:"backgroundImage,omitempty"`
+	Questions          []Question       `json:"questions"`
+	ShowIntroPage      bool             `json:"showIntroPage,omitempty"`
+	StartButtonText    string           `json:"startButtonText,omitempty"`
+	Introduction       string           `json:"introduction,omitempty"`
+	Title              string           `json:"title,omitempty"`
+	ShowResultPage     bool             `json:"showResultPage,omitempty"`
+	Message            string           `json:"message,omitempty"`
+	SolutionButtonText string           `json:"solutionButtonText,omitempty"`
+	OverallFeedback    []FeedbackRange  `json:"overallFeedback,omitempty"`
 }
 
 type BackgroundImage struct {
@@ -40,7 +40,7 @@ type Question struct {
 
 // MultiChoiceQuestion represents a typed H5P MultiChoice question
 type MultiChoiceQuestion struct {
-	Library string                    `json:"library"`
+	Library string                     `json:"library"`
 	Params  *schemas.MultiChoiceParams `json:"params"`
 }
 
