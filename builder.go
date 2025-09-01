@@ -3,6 +3,8 @@ package goh5p
 import (
 	"encoding/json"
 	"errors"
+
+	"github.com/grokify/go-h5p/schemas"
 )
 
 type QuestionSetBuilder struct {
@@ -52,18 +54,28 @@ func (b *QuestionSetBuilder) SetBackgroundImage(path, mime string) *QuestionSetB
 }
 
 func (b *QuestionSetBuilder) AddMultipleChoiceQuestion(question string, answers []Answer) *QuestionSetBuilder {
-	params := MultipleChoiceParams{
-		Question: question,
-		Answers:  answers,
+	// Convert legacy Answer to schemas.AnswerOption
+	schemaAnswers := make([]schemas.AnswerOption, len(answers))
+	for i, answer := range answers {
+		schemaAnswers[i] = schemas.AnswerOption{
+			Text:    answer.Text,
+			Correct: answer.Correct,
+			TipsAndFeedback: &schemas.AnswerTipsAndFeedback{
+				ChosenFeedback: answer.Feedback,
+			},
+		}
 	}
-	
-	paramsJSON, _ := json.Marshal(params)
-	
+
+	params := &schemas.MultiChoiceParams{
+		Question: question,
+		Answers:  schemaAnswers,
+	}
+
 	q := Question{
 		Library: "H5P.MultiChoice 1.16",
-		Params:  paramsJSON,
+		Params:  params,
 	}
-	
+
 	b.questionSet.Questions = append(b.questionSet.Questions, q)
 	return b
 }
@@ -120,16 +132,16 @@ func (qs *QuestionSet) Validate() error {
 	if len(qs.Questions) == 0 {
 		return errors.New("question set must have at least one question")
 	}
-	
+
 	if qs.PassPercentage < 0 || qs.PassPercentage > 100 {
 		return errors.New("pass percentage must be between 0 and 100")
 	}
-	
+
 	for i, feedback := range qs.OverallFeedback {
 		if feedback.From > feedback.To {
 			return errors.New("feedback range 'from' cannot be greater than 'to' at index " + string(rune(i)))
 		}
 	}
-	
+
 	return nil
 }

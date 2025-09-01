@@ -1,7 +1,7 @@
 package goh5p
 
 import (
-	"encoding/json"
+	"github.com/grokify/go-h5p/schemas"
 )
 
 type QuestionSet struct {
@@ -34,8 +34,30 @@ type Copyright struct {
 }
 
 type Question struct {
-	Library string          `json:"library"`
-	Params  json.RawMessage `json:"params"`
+	Library string      `json:"library"`
+	Params  interface{} `json:"params"`
+}
+
+// MultiChoiceQuestion represents a typed H5P MultiChoice question
+type MultiChoiceQuestion struct {
+	Library string                    `json:"library"`
+	Params  *schemas.MultiChoiceParams `json:"params"`
+}
+
+// ToQuestion converts a MultiChoiceQuestion to a generic Question
+func (mcq *MultiChoiceQuestion) ToQuestion() *Question {
+	return &Question{
+		Library: mcq.Library,
+		Params:  mcq.Params,
+	}
+}
+
+// NewMultiChoiceQuestion creates a new typed MultiChoice question
+func NewMultiChoiceQuestion(params *schemas.MultiChoiceParams) *MultiChoiceQuestion {
+	return &MultiChoiceQuestion{
+		Library: "H5P.MultiChoice 1.16",
+		Params:  params,
+	}
 }
 
 type FeedbackRange struct {
@@ -44,37 +66,10 @@ type FeedbackRange struct {
 	Text string `json:"text"`
 }
 
-type MultipleChoiceParams struct {
-	Question         string           `json:"question"`
-	Answers          []Answer         `json:"answers"`
-	UI               *UISettings      `json:"UI,omitempty"`
-	Behaviour        *Behaviour       `json:"behaviour,omitempty"`
-	OverallFeedback  []FeedbackRange  `json:"overallFeedback,omitempty"`
-}
-
+// Legacy types - use schemas.MultiChoiceParams instead
+// Kept for backward compatibility, will be deprecated
 type Answer struct {
 	Text     string `json:"text"`
 	Correct  bool   `json:"correct"`
-	Tipsandanswers bool `json:"tipsAndFeedback,omitempty"`
 	Feedback string `json:"feedback,omitempty"`
-}
-
-type UISettings struct {
-	CheckAnswerButton   string `json:"checkAnswerButton,omitempty"`
-	RetryButton         string `json:"retryButton,omitempty"`
-	ShowSolutionButton  string `json:"showSolutionButton,omitempty"`
-}
-
-type Behaviour struct {
-	EnableRetry          bool   `json:"enableRetry,omitempty"`
-	EnableSolutionsButton bool   `json:"enableSolutionsButton,omitempty"`
-	EnableCheckButton    bool   `json:"enableCheckButton,omitempty"`
-	Type                 string `json:"type,omitempty"`
-	SinglePoint          bool   `json:"singlePoint,omitempty"`
-	RandomAnswers        bool   `json:"randomAnswers,omitempty"`
-	PassPercentage       int    `json:"passPercentage,omitempty"`
-	RequireAnswer        bool   `json:"requireAnswer,omitempty"`
-	ConfirmCheckDialog   bool   `json:"confirmCheckDialog,omitempty"`
-	ConfirmRetryDialog   bool   `json:"confirmRetryDialog,omitempty"`
-	AutoCheck            bool   `json:"autoCheck,omitempty"`
 }

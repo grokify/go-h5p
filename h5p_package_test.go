@@ -9,9 +9,9 @@ import (
 
 func TestH5PPackageCreationAndExtraction(t *testing.T) {
 	// Load test data files
-	semanticsData, err := os.ReadFile("testdata/semantics.json")
+	semanticsData, err := os.ReadFile("schemas/multichoice-semantics.json")
 	if err != nil {
-		t.Fatalf("Failed to read semantics.json: %v", err)
+		t.Fatalf("Failed to read multichoice-semantics.json: %v", err)
 	}
 
 	contentData, err := os.ReadFile("testdata/content.json")
@@ -65,7 +65,7 @@ func TestH5PPackageCreationAndExtraction(t *testing.T) {
 	// Add some dummy JS/CSS files
 	lib.Files["js/multichoice.js"] = []byte("// MultiChoice JavaScript code")
 	lib.Files["css/multichoice.css"] = []byte("/* MultiChoice CSS styles */")
-	
+
 	pkg.AddLibrary(lib)
 
 	// Create temporary H5P file
@@ -135,9 +135,9 @@ func TestH5PPackageCreationAndExtraction(t *testing.T) {
 }
 
 func TestSemanticsValidation(t *testing.T) {
-	semanticsData, err := os.ReadFile("testdata/semantics.json")
+	semanticsData, err := os.ReadFile("schemas/multichoice-semantics.json")
 	if err != nil {
-		t.Fatalf("Failed to read semantics.json: %v", err)
+		t.Fatalf("Failed to read multichoice-semantics.json: %v", err)
 	}
 
 	var semantics []interface{}
@@ -210,7 +210,7 @@ func TestContentValidation(t *testing.T) {
 		if len(answers) != 4 {
 			t.Errorf("Expected 4 answers, got %d", len(answers))
 		}
-		
+
 		correctAnswers := 0
 		for _, answer := range answers {
 			if answerMap, ok := answer.(map[string]interface{}); ok {
@@ -219,7 +219,7 @@ func TestContentValidation(t *testing.T) {
 				}
 			}
 		}
-		
+
 		if correctAnswers != 1 {
 			t.Errorf("Expected 1 correct answer for single choice, got %d", correctAnswers)
 		}

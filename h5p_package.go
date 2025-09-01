@@ -29,9 +29,9 @@ type PackageDefinition struct {
 }
 
 type LibraryDependency struct {
-	MachineName    string `json:"machineName"`
-	MajorVersion   int    `json:"majorVersion"`
-	MinorVersion   int    `json:"minorVersion"`
+	MachineName  string `json:"machineName"`
+	MajorVersion int    `json:"majorVersion"`
+	MinorVersion int    `json:"minorVersion"`
 }
 
 type Content struct {
@@ -40,26 +40,26 @@ type Content struct {
 }
 
 type Library struct {
-	Definition *LibraryDefinition `json:"-"`
-	Semantics  interface{}        `json:"-"`
-	MachineName string            `json:"-"`
-	Files      map[string][]byte  `json:"-"`
+	Definition  *LibraryDefinition `json:"-"`
+	Semantics   interface{}        `json:"-"`
+	MachineName string             `json:"-"`
+	Files       map[string][]byte  `json:"-"`
 }
 
 type LibraryDefinition struct {
-	Title         string              `json:"title"`
-	MachineName   string              `json:"machineName"`
-	MajorVersion  int                 `json:"majorVersion"`
-	MinorVersion  int                 `json:"minorVersion"`
-	PatchVersion  int                 `json:"patchVersion"`
-	Runnable      bool                `json:"runnable"`
-	Author        string              `json:"author,omitempty"`
-	License       string              `json:"license,omitempty"`
-	Description   string              `json:"description,omitempty"`
-	PreloadedJs   []FileReference     `json:"preloadedJs,omitempty"`
-	PreloadedCss  []FileReference     `json:"preloadedCss,omitempty"`
-	DropLibraryCss []FileReference    `json:"dropLibraryCss,omitempty"`
-	Dependencies  []LibraryDependency `json:"preloadedDependencies,omitempty"`
+	Title          string              `json:"title"`
+	MachineName    string              `json:"machineName"`
+	MajorVersion   int                 `json:"majorVersion"`
+	MinorVersion   int                 `json:"minorVersion"`
+	PatchVersion   int                 `json:"patchVersion"`
+	Runnable       bool                `json:"runnable"`
+	Author         string              `json:"author,omitempty"`
+	License        string              `json:"license,omitempty"`
+	Description    string              `json:"description,omitempty"`
+	PreloadedJs    []FileReference     `json:"preloadedJs,omitempty"`
+	PreloadedCss   []FileReference     `json:"preloadedCss,omitempty"`
+	DropLibraryCss []FileReference     `json:"dropLibraryCss,omitempty"`
+	Dependencies   []LibraryDependency `json:"preloadedDependencies,omitempty"`
 }
 
 type FileReference struct {
@@ -161,12 +161,12 @@ func writeFileToZip(zipWriter *zip.Writer, filename string, data []byte) error {
 	if err != nil {
 		return fmt.Errorf("failed to create zip entry for %s: %w", filename, err)
 	}
-	
+
 	_, err = writer.Write(data)
 	if err != nil {
 		return fmt.Errorf("failed to write data to %s: %w", filename, err)
 	}
-	
+
 	return nil
 }
 
@@ -178,7 +178,7 @@ func LoadH5PPackage(filePath string) (*H5PPackage, error) {
 	defer reader.Close()
 
 	pkg := NewH5PPackage()
-	
+
 	for _, file := range reader.File {
 		if err := pkg.processZipFile(file); err != nil {
 			return nil, fmt.Errorf("failed to process file %s: %w", file.Name, err)
@@ -218,7 +218,7 @@ func (pkg *H5PPackage) processZipFile(file *zip.File) error {
 	case strings.HasSuffix(file.Name, "/library.json"):
 		libName := filepath.Dir(file.Name)
 		lib := pkg.findOrCreateLibrary(libName)
-		
+
 		var libDef LibraryDefinition
 		if err := json.Unmarshal(data, &libDef); err != nil {
 			return err
@@ -228,7 +228,7 @@ func (pkg *H5PPackage) processZipFile(file *zip.File) error {
 	case strings.HasSuffix(file.Name, "/semantics.json"):
 		libName := filepath.Dir(file.Name)
 		lib := pkg.findOrCreateLibrary(libName)
-		
+
 		var semantics interface{}
 		if err := json.Unmarshal(data, &semantics); err != nil {
 			return err
@@ -258,7 +258,7 @@ func (pkg *H5PPackage) findOrCreateLibrary(machineName string) *Library {
 			return lib
 		}
 	}
-	
+
 	lib := &Library{
 		MachineName: machineName,
 		Files:       make(map[string][]byte),

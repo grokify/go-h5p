@@ -1,7 +1,6 @@
 package goh5p
 
 import (
-	"encoding/json"
 	"os"
 	"testing"
 )
@@ -127,17 +126,18 @@ func TestReadSampleQuestionSetJSON(t *testing.T) {
 	multiAnswerCount := 0
 
 	for i, question := range questionSet.Questions {
-		var params MultipleChoiceParams
-		err := json.Unmarshal(question.Params, &params)
-		if err != nil {
-			t.Fatalf("Failed to parse question %d params: %v", i, err)
-		}
-
-		if params.Behaviour != nil {
-			if params.Behaviour.Type == "single" {
-				singleAnswerCount++
-			} else if params.Behaviour.Type == "multi" {
-				multiAnswerCount++
+		// Since params are now interface{}, we need to handle them differently
+		if paramsMap, ok := question.Params.(map[string]interface{}); ok {
+			if behaviourInterface, exists := paramsMap["behaviour"]; exists {
+				if behaviour, ok := behaviourInterface.(map[string]interface{}); ok {
+					if questionType, exists := behaviour["type"]; exists {
+						if questionType == "single" {
+							singleAnswerCount++
+						} else if questionType == "multi" {
+							multiAnswerCount++
+						}
+					}
+				}
 			}
 		}
 
@@ -145,8 +145,14 @@ func TestReadSampleQuestionSetJSON(t *testing.T) {
 			t.Errorf("Question %d: expected library 'H5P.MultiChoice 1.16', got '%s'", i, question.Library)
 		}
 
-		if len(params.Answers) == 0 {
-			t.Errorf("Question %d: no answers found", i)
+		if paramsMap, ok := question.Params.(map[string]interface{}); ok {
+			if answersInterface, exists := paramsMap["answers"]; exists {
+				if answers, ok := answersInterface.([]interface{}); ok {
+					if len(answers) == 0 {
+						t.Errorf("Question %d: no answers found", i)
+					}
+				}
+			}
 		}
 	}
 
