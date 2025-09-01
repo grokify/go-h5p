@@ -1,0 +1,73 @@
+{
+  "question": "What is the capital of France?",
+  "answers": [
+    {
+      "text": "Paris",
+      "correct": true,
+      "tipsAndFeedback": {
+        "chosenFeedback": "Correct! Paris is indeed the capital of France.",
+        "notChosenFeedback": "Paris is the correct answer."
+      }
+    },
+    {
+      "text": "London",
+      "correct": false,
+      "tipsAndFeedback": {
+        "chosenFeedback": "Incorrect. London is the capital of the United Kingdom.",
+        "notChosenFeedback": "London is not the capital of France."
+      }
+    },
+    {
+      "text": "Berlin",
+      "correct": false,
+      "tipsAndFeedback": {
+        "chosenFeedback": "Incorrect. Berlin is the capital of Germany.",
+        "notChosenFeedback": "Berlin is not the capital of France."
+      }
+    },
+    {
+      "text": "Madrid",
+      "correct": false,
+      "tipsAndFeedback": {
+        "chosenFeedback": "Incorrect. Madrid is the capital of Spain.",
+        "notChosenFeedback": "Madrid is not the capital of France."
+      }
+    }
+  ],
+  "overallFeedback": {
+    "overallFeedback": [
+      {
+        "from": 0,
+        "to": 0,
+        "feedback": "Try again! You can do better."
+      },
+      {
+        "from": 100,
+        "to": 100,
+        "feedback": "Perfect! You got it right!"
+      }
+    ]
+  },
+  "behaviour": {
+    "enableRetry": true,
+    "enableSolutionsButton": true,
+    "enableCheckButton": true,
+    "type": "single",
+    "singlePoint": false,
+    "randomAnswers": true,
+    "passPercentage": 100,
+    "showScorePoints": true
+  },
+  "UI": {
+    "checkAnswerButton": "Check",
+    "showSolutionButton": "Show solution",
+    "tryAgainButton": "Retry",
+    "tipsLabel": "Show tip",
+    "scoreBarLabel": "You got :num out of :total points",
+    "tipAvailable": "Tip available",
+    "feedbackAvailable": "Feedback available",
+    "readFeedback": "Read feedback",
+    "wrongAnswer": "Wrong answer",
+    "correctAnswer": "Correct answer"
+  }
+}

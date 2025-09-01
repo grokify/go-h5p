@@ -66,11 +66,15 @@ type UISettings struct {
 }
 
 type Behaviour struct {
-	EnableRetry          bool `json:"enableRetry,omitempty"`
-	EnableSolutionsButton bool `json:"enableSolutionsButton,omitempty"`
-	EnableCheckButton    bool `json:"enableCheckButton,omitempty"`
+	EnableRetry          bool   `json:"enableRetry,omitempty"`
+	EnableSolutionsButton bool   `json:"enableSolutionsButton,omitempty"`
+	EnableCheckButton    bool   `json:"enableCheckButton,omitempty"`
 	Type                 string `json:"type,omitempty"`
 	SinglePoint          bool   `json:"singlePoint,omitempty"`
 	RandomAnswers        bool   `json:"randomAnswers,omitempty"`
 	PassPercentage       int    `json:"passPercentage,omitempty"`
+	RequireAnswer        bool   `json:"requireAnswer,omitempty"`
+	ConfirmCheckDialog   bool   `json:"confirmCheckDialog,omitempty"`
+	ConfirmRetryDialog   bool   `json:"confirmRetryDialog,omitempty"`
+	AutoCheck            bool   `json:"autoCheck,omitempty"`
 }

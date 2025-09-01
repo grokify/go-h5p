@@ -1,0 +1,358 @@
+[
+  {
+    "name": "media",
+    "type": "group",
+    "label": "Media",
+    "importance": "medium",
+    "fields": [
+      {
+        "name": "type",
+        "type": "library",
+        "label": "Type",
+        "importance": "medium",
+        "options": [
+          "H5P.Image 1.1",
+          "H5P.Video 1.6"
+        ],
+        "optional": true
+      },
+      {
+        "name": "disableImageZooming",
+        "type": "boolean",
+        "label": "Disable image zooming",
+        "importance": "low",
+        "default": false,
+        "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "type",
+              "equals": "H5P.Image 1.1"
+            }
+          ]
+        }
+      }
+    ],
+    "optional": true
+  },
+  {
+    "name": "question",
+    "type": "text",
+    "importance": "high",
+    "label": "Question",
+    "widget": "html",
+    "tags": [
+      "strong",
+      "em",
+      "sub",
+      "sup",
+      "h2",
+      "h3",
+      "pre",
+      "code"
+    ]
+  },
+  {
+    "name": "answers",
+    "type": "list",
+    "importance": "high",
+    "label": "Available options",
+    "entity": "option",
+    "min": 1,
+    "defaultNum": 2,
+    "field": {
+      "name": "answer",
+      "type": "group",
+      "label": "Option",
+      "importance": "high",
+      "fields": [
+        {
+          "name": "text",
+          "type": "text",
+          "label": "Text",
+          "importance": "high",
+          "widget": "html",
+          "tags": [
+            "strong",
+            "em",
+            "sub",
+            "sup",
+            "code"
+          ]
+        },
+        {
+          "name": "correct",
+          "type": "boolean",
+          "label": "Correct",
+          "importance": "high",
+          "default": false
+        },
+        {
+          "name": "tipsAndFeedback",
+          "type": "group",
+          "label": "Tips and feedback",
+          "importance": "low",
+          "optional": true,
+          "fields": [
+            {
+              "name": "tip",
+              "type": "text",
+              "label": "Tip text",
+              "importance": "low",
+              "description": "Hint for the user. This will appear before user checks his answer/answers.",
+              "optional": true
+            },
+            {
+              "name": "chosenFeedback",
+              "type": "text",
+              "label": "Message displayed if answer is selected",
+              "importance": "low",
+              "description": "Message will appear below the answer on \"check\" if this answer is selected.",
+              "optional": true
+            },
+            {
+              "name": "notChosenFeedback",
+              "type": "text",
+              "label": "Message displayed if answer is not selected",
+              "importance": "low",
+              "description": "Message will appear below the answer on \"check\" if this answer is not selected.",
+              "optional": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "overallFeedback",
+    "type": "group",
+    "label": "Overall Feedback",
+    "importance": "low",
+    "expanded": true,
+    "fields": [
+      {
+        "name": "overallFeedback",
+        "type": "list",
+        "importance": "high",
+        "label": "Define custom feedback for any score range",
+        "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+        "entity": "range",
+        "min": 1,
+        "defaultNum": 1,
+        "optional": true,
+        "field": {
+          "name": "overallFeedback",
+          "type": "group",
+          "importance": "low",
+          "fields": [
+            {
+              "name": "from",
+              "type": "number",
+              "label": "Score Range",
+              "min": 0,
+              "max": 100,
+              "default": 0,
+              "unit": "%"
+            },
+            {
+              "name": "to",
+              "type": "number",
+              "min": 0,
+              "max": 100,
+              "default": 100,
+              "unit": "%"
+            },
+            {
+              "name": "feedback",
+              "type": "text",
+              "label": "Feedback for defined score range",
+              "importance": "low",
+              "placeholder": "Fill in the feedback",
+              "optional": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings",
+    "importance": "low",
+    "description": "These options will let you control how the task behaves.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "enableRetry",
+        "type": "boolean",
+        "label": "Enable \"Retry\" button",
+        "importance": "low",
+        "default": true
+      },
+      {
+        "name": "enableSolutionsButton",
+        "type": "boolean",
+        "label": "Enable \"Show Solution\" button",
+        "importance": "low",
+        "default": true
+      },
+      {
+        "name": "enableCheckButton",
+        "type": "boolean",
+        "label": "Enable \"Check\" button",
+        "importance": "low",
+        "default": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "autoCheck",
+              "equals": false
+            }
+          ]
+        }
+      },
+      {
+        "name": "type",
+        "type": "select",
+        "label": "Question Type",
+        "importance": "high",
+        "description": "Select the look and behaviour of the question.",
+        "default": "auto",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Automatic"
+          },
+          {
+            "value": "multi",
+            "label": "Multiple Choice (Checkboxes)"
+          },
+          {
+            "value": "single",
+            "label": "Single Choice (Radio Buttons)"
+          }
+        ]
+      },
+      {
+        "name": "singlePoint",
+        "type": "boolean",
+        "label": "Give one point for the whole task",
+        "importance": "low",
+        "description": "Enable to give a total of one point for multiple correct answers. Disable to give one point for each correct answer.",
+        "default": true
+      },
+      {
+        "name": "randomAnswers",
+        "type": "boolean",
+        "label": "Randomize answers",
+        "importance": "low",
+        "description": "Enable to randomize the order of the answers on display.",
+        "default": true
+      },
+      {
+        "name": "passPercentage",
+        "type": "number",
+        "label": "Pass percentage",
+        "description": "Percentage of Total score required for passing the quiz.",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 100
+      },
+      {
+        "name": "showScorePoints",
+        "type": "boolean",
+        "label": "Show score points",
+        "description": "Show points earned for each question.",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "UI",
+    "type": "group",
+    "label": "User interface translations for multichoice",
+    "importance": "low",
+    "common": true,
+    "fields": [
+      {
+        "name": "checkAnswerButton",
+        "type": "text",
+        "label": "Check answer button label",
+        "default": "Check",
+        "optional": true
+      },
+      {
+        "name": "showSolutionButton",
+        "type": "text",
+        "label": "Show solution button label",
+        "default": "Show solution",
+        "optional": true
+      },
+      {
+        "name": "tryAgainButton",
+        "type": "text",
+        "label": "Retry button label",
+        "default": "Retry",
+        "optional": true
+      },
+      {
+        "name": "tipsLabel",
+        "type": "text",
+        "label": "Tip label",
+        "default": "Show tip",
+        "optional": true
+      },
+      {
+        "name": "scoreBarLabel",
+        "type": "text",
+        "label": "Score bar label",
+        "default": "You got :num out of :total points",
+        "optional": true
+      },
+      {
+        "name": "tipAvailable",
+        "type": "text",
+        "label": "Tip available (not displayed)",
+        "default": "Tip available",
+        "optional": true,
+        "common": true
+      },
+      {
+        "name": "feedbackAvailable",
+        "type": "text",
+        "label": "Feedback available (not displayed)",
+        "default": "Feedback available",
+        "optional": true,
+        "common": true
+      },
+      {
+        "name": "readFeedback",
+        "type": "text",
+        "label": "Read feedback (not displayed)",
+        "default": "Read feedback",
+        "optional": true,
+        "common": true
+      },
+      {
+        "name": "wrongAnswer",
+        "type": "text",
+        "label": "Wrong answer (not displayed)",
+        "default": "Wrong answer",
+        "optional": true,
+        "common": true
+      },
+      {
+        "name": "correctAnswer",
+        "type": "text",
+        "label": "Correct answer (not displayed)",
+        "default": "Correct answer",
+        "optional": true,
+        "common": true
+      }
+    ]
+  }
+]

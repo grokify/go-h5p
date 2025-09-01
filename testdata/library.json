@@ -1,0 +1,18 @@
+{
+  "title": "Multiple Choice",
+  "machineName": "H5P.MultiChoice",
+  "majorVersion": 1,
+  "minorVersion": 16,
+  "patchVersion": 4,
+  "runnable": true,
+  "author": "H5P Group",
+  "license": "MIT",
+  "description": "Multiple choice questions allow content designers to create textual questions where the user can select multiple correct options.",
+  "preloadedJs": [
+    {"path": "js/multichoice.js"}
+  ],
+  "preloadedCss": [
+    {"path": "css/multichoice.css"}
+  ],
+  "preloadedDependencies": []
+}

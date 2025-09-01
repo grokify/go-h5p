@@ -1,0 +1,97 @@
+{
+  "title": "Mixed Quiz Types",
+  "progressType": "textual",
+  "passPercentage": 60,
+  "showIntroPage": true,
+  "introduction": "This quiz contains both single and multiple answer questions.",
+  "startButtonText": "Start Quiz",
+  "questions": [
+    {
+      "library": "H5P.MultiChoice 1.16",
+      "params": {
+        "question": "What is the capital of France?",
+        "answers": [
+          {"text": "Paris", "correct": true},
+          {"text": "London", "correct": false},
+          {"text": "Berlin", "correct": false},
+          {"text": "Madrid", "correct": false}
+        ],
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "type": "single",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "autoCheck": false
+        }
+      }
+    },
+    {
+      "library": "H5P.MultiChoice 1.16",
+      "params": {
+        "question": "Which of the following are programming languages? (Select all that apply)",
+        "answers": [
+          {"text": "Python", "correct": true},
+          {"text": "JavaScript", "correct": true},
+          {"text": "HTML", "correct": false},
+          {"text": "Java", "correct": true},
+          {"text": "CSS", "correct": false}
+        ],
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "type": "multi",
+          "singlePoint": true,
+          "randomAnswers": false,
+          "autoCheck": false
+        }
+      }
+    },
+    {
+      "library": "H5P.MultiChoice 1.16",
+      "params": {
+        "question": "Which planet is closest to the Sun?",
+        "answers": [
+          {"text": "Venus", "correct": false},
+          {"text": "Mercury", "correct": true},
+          {"text": "Earth", "correct": false},
+          {"text": "Mars", "correct": false}
+        ],
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "type": "single",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "autoCheck": false
+        }
+      }
+    },
+    {
+      "library": "H5P.MultiChoice 1.16",
+      "params": {
+        "question": "Which of the following are mammals? (Select all that apply)",
+        "answers": [
+          {"text": "Dog", "correct": true},
+          {"text": "Eagle", "correct": false},
+          {"text": "Whale", "correct": true},
+          {"text": "Shark", "correct": false},
+          {"text": "Cat", "correct": true}
+        ],
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "type": "multi",
+          "singlePoint": true,
+          "randomAnswers": false,
+          "autoCheck": false
+        }
+      }
+    }
+  ],
+  "overallFeedback": [
+    {"from": 0, "to": 39, "text": "You need more practice!"},
+    {"from": 40, "to": 79, "text": "Good work!"},
+    {"from": 80, "to": 100, "text": "Excellent! You got most questions right!"}
+  ]
+}

@@ -1,6 +1,8 @@
 package goh5p
 
 import (
+	"encoding/json"
+	"os"
 	"testing"
 )
 
@@ -100,4 +102,67 @@ func TestFeedbackRange(t *testing.T) {
 	if fr.From != 80 || fr.To != 100 || fr.Text != "Excellent!" {
 		t.Error("CreateFeedbackRange did not create range correctly")
 	}
+}
+
+func TestReadSampleQuestionSetJSON(t *testing.T) {
+	jsonData, err := os.ReadFile("testdata/sample_questionset.json")
+	if err != nil {
+		t.Fatalf("Failed to read sample JSON file: %v", err)
+	}
+
+	questionSet, err := FromJSON(jsonData)
+	if err != nil {
+		t.Fatalf("Failed to parse JSON: %v", err)
+	}
+
+	if questionSet.Title != "Mixed Quiz Types" {
+		t.Errorf("Expected title 'Mixed Quiz Types', got '%s'", questionSet.Title)
+	}
+
+	if len(questionSet.Questions) != 4 {
+		t.Errorf("Expected 4 questions, got %d", len(questionSet.Questions))
+	}
+
+	singleAnswerCount := 0
+	multiAnswerCount := 0
+
+	for i, question := range questionSet.Questions {
+		var params MultipleChoiceParams
+		err := json.Unmarshal(question.Params, &params)
+		if err != nil {
+			t.Fatalf("Failed to parse question %d params: %v", i, err)
+		}
+
+		if params.Behaviour != nil {
+			if params.Behaviour.Type == "single" {
+				singleAnswerCount++
+			} else if params.Behaviour.Type == "multi" {
+				multiAnswerCount++
+			}
+		}
+
+		if question.Library != "H5P.MultiChoice 1.16" {
+			t.Errorf("Question %d: expected library 'H5P.MultiChoice 1.16', got '%s'", i, question.Library)
+		}
+
+		if len(params.Answers) == 0 {
+			t.Errorf("Question %d: no answers found", i)
+		}
+	}
+
+	if singleAnswerCount != 2 {
+		t.Errorf("Expected 2 single-answer questions, got %d", singleAnswerCount)
+	}
+
+	if multiAnswerCount != 2 {
+		t.Errorf("Expected 2 multi-answer questions, got %d", multiAnswerCount)
+	}
+
+	err = questionSet.Validate()
+	if err != nil {
+		t.Errorf("Question set validation failed: %v", err)
+	}
+
+	t.Logf("Successfully parsed question set with %d questions (%d single-answer, %d multi-answer)",
+		len(questionSet.Questions), singleAnswerCount, multiAnswerCount)
 }

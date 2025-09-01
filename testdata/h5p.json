@@ -1,0 +1,16 @@
+{
+  "title": "Geography Quiz - Capital of France",
+  "language": "en",
+  "mainLibrary": "H5P.MultiChoice",
+  "embedTypes": ["div"],
+  "license": "U",
+  "defaultLanguage": "en",
+  "author": "Test Author",
+  "preloadedDependencies": [
+    {
+      "machineName": "H5P.MultiChoice",
+      "majorVersion": 1,
+      "minorVersion": 16
+    }
+  ]
+}
