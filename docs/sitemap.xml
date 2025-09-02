@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://grokify.github.io/h5p-go/</loc>
+         <lastmod>2025-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://grokify.github.io/h5p-go/why-h5p-for-quizzes/</loc>
+         <lastmod>2025-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://grokify.github.io/h5p-go/api/semantics/</loc>
+         <lastmod>2025-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://grokify.github.io/h5p-go/getting-started/concepts/</loc>
+         <lastmod>2025-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://grokify.github.io/h5p-go/getting-started/installation/</loc>
+         <lastmod>2025-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://grokify.github.io/h5p-go/getting-started/quick-start/</loc>
+         <lastmod>2025-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
