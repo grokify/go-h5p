@@ -12,14 +12,14 @@
         <meta name="author" content="Grokify">
       
       
-        <link rel="canonical" href="https://grokify.github.io/h5p-go/getting-started/concepts/">
+        <link rel="canonical" href="https://grokify.github.io/h5p-go/reference/standards/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.6">
     
     
       
-        <title>Basic Concepts - H5P Go SDK Documentation</title>
+        <title>Standards Compliance - H5P Go SDK Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-concepts" class="md-skip">
+        <a href="#standards-compliance" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basic Concepts
+              Standards Compliance
             
           </span>
         </div>
@@ -209,15 +209,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../installation/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../getting-started/installation/" class="md-tabs__link">
         Getting Started
       </a>
     </li>
@@ -275,13 +273,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../reference/h5p-spec/" class="md-tabs__link">
+      <a href="../h5p-spec/" class="md-tabs__link md-tabs__link--active">
         Reference
       </a>
     </li>
@@ -369,14 +369,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -399,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -413,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start/" class="md-nav__link">
+      <a href="../../getting-started/quick-start/" class="md-nav__link">
         Quick Start
       </a>
     </li>
@@ -425,195 +423,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Basic Concepts
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../getting-started/concepts/" class="md-nav__link">
         Basic Concepts
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-h5p" class="md-nav__link">
-    What is H5P?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
-    Core Components
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#content-types" class="md-nav__link">
-    Content Types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#h5p-package-structure" class="md-nav__link">
-    H5P Package Structure
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semantics" class="md-nav__link">
-    Semantics
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sdk-architecture" class="md-nav__link">
-    SDK Architecture
-  </a>
-  
-    <nav class="md-nav" aria-label="SDK Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#builder-pattern" class="md-nav__link">
-    Builder Pattern
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#type-safety" class="md-nav__link">
-    Type Safety
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
-    Validation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    Key Concepts
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#questions-vs-question-sets" class="md-nav__link">
-    Questions vs Question Sets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters-vs-content" class="md-nav__link">
-    Parameters vs Content
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#libraries-vs-content-types" class="md-nav__link">
-    Libraries vs Content Types
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-content" class="md-nav__link">
-    Working with Content
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Content">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-content" class="md-nav__link">
-    Creating Content
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loading-content" class="md-nav__link">
-    Loading Content
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next Steps
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -887,12 +701,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -915,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/h5p-spec/" class="md-nav__link">
+      <a href="../h5p-spec/" class="md-nav__link">
         H5P Specification
       </a>
     </li>
@@ -929,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/file-structure/" class="md-nav__link">
+      <a href="../file-structure/" class="md-nav__link">
         File Structure
       </a>
     </li>
@@ -941,11 +757,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../reference/standards/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Standards Compliance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Standards Compliance
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coming-soon" class="md-nav__link">
+    Coming Soon
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1060,151 +917,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-h5p" class="md-nav__link">
-    What is H5P?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
-    Core Components
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#content-types" class="md-nav__link">
-    Content Types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#h5p-package-structure" class="md-nav__link">
-    H5P Package Structure
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semantics" class="md-nav__link">
-    Semantics
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sdk-architecture" class="md-nav__link">
-    SDK Architecture
-  </a>
-  
-    <nav class="md-nav" aria-label="SDK Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#builder-pattern" class="md-nav__link">
-    Builder Pattern
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#type-safety" class="md-nav__link">
-    Type Safety
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
-    Validation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    Key Concepts
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#questions-vs-question-sets" class="md-nav__link">
-    Questions vs Question Sets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters-vs-content" class="md-nav__link">
-    Parameters vs Content
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#libraries-vs-content-types" class="md-nav__link">
-    Libraries vs Content Types
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-content" class="md-nav__link">
-    Working with Content
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Content">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-content" class="md-nav__link">
-    Creating Content
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loading-content" class="md-nav__link">
-    Loading Content
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next Steps
+  <a href="#coming-soon" class="md-nav__link">
+    Coming Soon
   </a>
   
 </li>
@@ -1221,136 +935,23 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/grokify/h5p-go/edit/master/docs/getting-started/concepts.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/grokify/h5p-go/edit/master/docs/reference/standards.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="basic-concepts">Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permanent link">&para;</a></h1>
-<p>Understanding the key concepts behind H5P and this Go SDK will help you create better interactive content.</p>
-<h2 id="what-is-h5p">What is H5P?<a class="headerlink" href="#what-is-h5p" title="Permanent link">&para;</a></h2>
-<p>H5P (HTML5 Package) is an open-source framework for creating interactive content such as quizzes, presentations, and games. H5P content is:</p>
+<h1 id="standards-compliance">Standards Compliance<a class="headerlink" href="#standards-compliance" title="Permanent link">&para;</a></h1>
+<p>H5P standards compliance and best practices.</p>
+<h2 id="coming-soon">Coming Soon<a class="headerlink" href="#coming-soon" title="Permanent link">&para;</a></h2>
+<p>Standards compliance documentation including:</p>
 <ul>
-<li><strong>Reusable</strong> - Content can be embedded in multiple platforms</li>
-<li><strong>Responsive</strong> - Works on desktop, tablet, and mobile devices  </li>
-<li><strong>Standards-based</strong> - Built on web standards (HTML5, CSS, JavaScript)</li>
-<li><strong>Accessible</strong> - Designed with accessibility in mind</li>
+<li>H5P specification adherence</li>
+<li>Validation requirements</li>
+<li>Cross-platform compatibility</li>
+<li>Quality assurance guidelines</li>
 </ul>
-<h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
-<h3 id="content-types">Content Types<a class="headerlink" href="#content-types" title="Permanent link">&para;</a></h3>
-<p>H5P organizes interactive elements into <strong>content types</strong>:</p>
-<ul>
-<li><strong>MultiChoice</strong> - Single or multiple answer questions</li>
-<li><strong>TrueFalse</strong> - Simple true/false questions</li>
-<li><strong>Essay</strong> - Open-ended text responses</li>
-<li><strong>Question Set</strong> - Collections of questions with scoring</li>
-</ul>
-<h3 id="h5p-package-structure">H5P Package Structure<a class="headerlink" href="#h5p-package-structure" title="Permanent link">&para;</a></h3>
-<p>An H5P package (<code>.h5p</code> file) is a ZIP archive containing:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>package.h5p
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── h5p.json              # Package metadata
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── content/
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   └── content.json     # Content parameters
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── H5P.ContentType-1.0/ # Library files
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ├── library.json     # Library definition
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    ├── semantics.json   # Content schema
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    ├── js/             # JavaScript files
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    └── css/            # Stylesheet files
-</code></pre></div>
-<h3 id="semantics">Semantics<a class="headerlink" href="#semantics" title="Permanent link">&para;</a></h3>
-<p><strong>Semantics</strong> define the structure and validation rules for content types. They specify:</p>
-<ul>
-<li>What fields are available for editing</li>
-<li>Field types (text, select, number, etc.)</li>
-<li>Validation rules and constraints</li>
-<li>UI behavior and layout</li>
-</ul>
-<h2 id="sdk-architecture">SDK Architecture<a class="headerlink" href="#sdk-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="builder-pattern">Builder Pattern<a class="headerlink" href="#builder-pattern" title="Permanent link">&para;</a></h3>
-<p>The SDK uses the builder pattern for creating content:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">questionSet</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">goh5p</span><span class="p">.</span><span class="nx">NewQuestionSetBuilder</span><span class="p">().</span><span class="w"></span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nx">SetTitle</span><span class="p">(</span><span class="s">&quot;My Quiz&quot;</span><span class="p">).</span><span class="w"></span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nx">SetPassPercentage</span><span class="p">(</span><span class="mi">80</span><span class="p">).</span><span class="w"></span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nx">AddMultipleChoiceQuestion</span><span class="p">(</span><span class="s">&quot;Question?&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">answers</span><span class="p">).</span><span class="w"></span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">Build</span><span class="p">()</span><span class="w"></span>
-</code></pre></div>
-<p>Benefits:
-- <strong>Fluent API</strong> - Easy to read and write
-- <strong>Validation</strong> - Catches errors during construction
-- <strong>Flexibility</strong> - Optional parameters are simple to handle</p>
-<h3 id="type-safety">Type Safety<a class="headerlink" href="#type-safety" title="Permanent link">&para;</a></h3>
-<p>The SDK provides two levels of type safety:</p>
-<ol>
-<li><strong>Generic Types</strong> - Work with any content type</li>
-<li><strong>Typed Schemas</strong> - Strongly-typed for specific content types</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Generic approach</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nx">question</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">goh5p</span><span class="p">.</span><span class="nx">Question</span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nx">Library</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;H5P.MultiChoice 1.16&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">Params</span><span class="p">:</span><span class="w">  </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span><span class="s">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;What is 2+2?&quot;</span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Typed approach  </span><span class="w"></span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nx">params</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">schemas</span><span class="p">.</span><span class="nx">MultiChoiceParams</span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nx">Question</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;What is 2+2?&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nx">Answers</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">schemas</span><span class="p">.</span><span class="nx">AnswerOption</span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">{</span><span class="nx">Text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Correct</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<h3 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h3>
-<p>The SDK includes comprehensive validation:</p>
-<ul>
-<li><strong>Structure validation</strong> - Required fields, correct types</li>
-<li><strong>Business logic validation</strong> - Sensible values, relationships</li>
-<li><strong>H5P compliance</strong> - Matches official specifications</li>
-</ul>
-<h2 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="questions-vs-question-sets">Questions vs Question Sets<a class="headerlink" href="#questions-vs-question-sets" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Question</strong> - A single interactive element (e.g., one multiple choice question)</li>
-<li><strong>Question Set</strong> - A collection of questions with overall scoring and feedback</li>
-</ul>
-<h3 id="parameters-vs-content">Parameters vs Content<a class="headerlink" href="#parameters-vs-content" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Parameters</strong> - The configuration data for content (JSON)</li>
-<li><strong>Content</strong> - The complete H5P content including metadata and parameters</li>
-</ul>
-<h3 id="libraries-vs-content-types">Libraries vs Content Types<a class="headerlink" href="#libraries-vs-content-types" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Library</strong> - The code (JS/CSS) that renders content</li>
-<li><strong>Content Type</strong> - A specific type of interactive content (MultiChoice, Essay, etc.)</li>
-</ul>
-<h2 id="working-with-content">Working with Content<a class="headerlink" href="#working-with-content" title="Permanent link">&para;</a></h2>
-<h3 id="creating-content">Creating Content<a class="headerlink" href="#creating-content" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Define your content structure</strong> (questions, answers, feedback)</li>
-<li><strong>Use the builder</strong> to construct your content</li>
-<li><strong>Validate</strong> the result</li>
-<li><strong>Export</strong> to JSON or H5P package</li>
-</ol>
-<h3 id="loading-content">Loading Content<a class="headerlink" href="#loading-content" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Parse</strong> JSON or extract H5P package</li>
-<li><strong>Validate</strong> the loaded content</li>
-<li><strong>Access</strong> parameters and metadata</li>
-<li><strong>Modify</strong> as needed</li>
-</ol>
-<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Always validate content before deployment</li>
-<li>Use typed schemas when available for better safety</li>
-<li>Follow H5P naming conventions for compatibility</li>
-<li>Test content in H5P-compatible environments</li>
-</ul>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../guide/question-sets/">Question Sets Guide</a> - Working with question collections</li>
-<li><a href="../../guide/typed-questions/">Typed Questions</a> - Using type-safe schemas</li>
-<li><a href="../../guide/h5p-packages/">H5P Packages</a> - Creating complete H5P files</li>
-<li><a href="../../api/core-types/">API Reference</a> - Detailed API documentation</li>
-</ul>
+<p>Standards documentation coming soon!</p>
 
               
             </article>
@@ -1371,7 +972,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../quick-start/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quick Start" rel="prev">
+        <a href="../file-structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: File Structure" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1380,20 +981,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Quick Start
+              File Structure
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../guide/question-sets/" class="md-footer__link md-footer__link--next" aria-label="Next: Question Sets" rel="next">
+        <a href="../../development/contributing/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Question Sets
+              Contributing
             </div>
           </div>
           <div class="md-footer__button md-icon">
