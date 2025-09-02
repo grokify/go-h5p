@@ -9,9 +9,9 @@ import (
 
 func TestH5PPackageCreationAndExtraction(t *testing.T) {
 	// Load test data files
-	semanticsData, err := os.ReadFile("schemas/multichoice-semantics.json")
+	semanticsData, err := os.ReadFile("schemas/multichoice_semantics.json")
 	if err != nil {
-		t.Fatalf("Failed to read multichoice-semantics.json: %v", err)
+		t.Fatalf("Failed to read multichoice_semantics.json: %v", err)
 	}
 
 	contentData, err := os.ReadFile("testdata/content.json")
@@ -135,7 +135,7 @@ func TestH5PPackageCreationAndExtraction(t *testing.T) {
 }
 
 func TestSemanticsValidation(t *testing.T) {
-	semanticsData, err := os.ReadFile("schemas/multichoice-semantics.json")
+	semanticsData, err := os.ReadFile("schemas/multichoice_semantics.json")
 	if err != nil {
 		t.Fatalf("Failed to read multichoice-semantics.json: %v", err)
 	}
