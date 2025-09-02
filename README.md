@@ -8,10 +8,6 @@
 
 A comprehensive Go library for creating, manipulating, and validating H5P (HTML5 Package) content, with full support for the official H5P file format and schemas.
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/grokify/go-h5p.svg)](https://pkg.go.dev/github.com/grokify/go-h5p)
-[![Go Report Card](https://goreportcard.com/badge/github.com/grokify/go-h5p)](https://goreportcard.com/report/github.com/grokify/go-h5p)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
 ## ✨ Features
 
 - 📦 **Full H5P Package Support**: Create and extract `.h5p` ZIP files with proper structure
