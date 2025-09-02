@@ -40,7 +40,7 @@ params := &schemas.MultiChoiceParams{
 }
 
 // Create the typed question
-question := goh5p.NewMultiChoiceQuestion(params)
+question := h5p.NewMultiChoiceQuestion(params)
 ```
 
 ### Answer Configuration
@@ -209,7 +209,7 @@ if err := params.Validate(); err != nil {
 }
 
 // Create the question (also validates)
-question := goh5p.NewMultiChoiceQuestion(params)
+question := h5p.NewMultiChoiceQuestion(params)
 ```
 
 Common validation rules:
@@ -225,13 +225,13 @@ Convert typed questions to generic format for question sets:
 
 ```go
 // Create typed question
-typedQuestion := goh5p.NewMultiChoiceQuestion(params)
+typedQuestion := h5p.NewMultiChoiceQuestion(params)
 
 // Convert to generic question
 genericQuestion := typedQuestion.ToQuestion()
 
 // Add to question set
-builder := goh5p.NewQuestionSetBuilder()
+builder := h5p.NewQuestionSetBuilder()
 builder.AddQuestion(genericQuestion)
 ```
 
@@ -256,7 +256,7 @@ func main() {
     genericQuestion := question.ToQuestion()
     
     // Add to a question set
-    questionSet, err := goh5p.NewQuestionSetBuilder().
+    questionSet, err := h5p.NewQuestionSetBuilder().
         SetTitle("Advanced Programming Quiz").
         SetProgressType("textual").
         SetPassPercentage(70).
@@ -276,7 +276,7 @@ func main() {
     fmt.Printf("Created advanced question:\n%s\n", string(jsonData))
 }
 
-func createAdvancedQuestion() *goh5p.MultiChoiceQuestion {
+func createAdvancedQuestion() *h5p.MultiChoiceQuestion {
     params := &schemas.MultiChoiceParams{
         Question: "Which of the following are characteristics of Go programming language?",
         
@@ -355,7 +355,7 @@ func createAdvancedQuestion() *goh5p.MultiChoiceQuestion {
         },
     }
     
-    return goh5p.NewMultiChoiceQuestion(params)
+    return h5p.NewMultiChoiceQuestion(params)
 }
 ```
 

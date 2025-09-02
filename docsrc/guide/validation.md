@@ -51,7 +51,7 @@ if err := params.Validate(); err != nil {
 
 ```go
 // Validate complete H5P package
-pkg := goh5p.NewH5PPackage()
+pkg := h5p.NewH5PPackage()
 // ... configure package ...
 
 if err := pkg.Validate(); err != nil {
@@ -75,7 +75,7 @@ if err := pkg.Validate(); err != nil {
 
 ```go
 // Valid question set
-questionSet, err := goh5p.NewQuestionSetBuilder().
+questionSet, err := h5p.NewQuestionSetBuilder().
     SetTitle("My Quiz").              // Required
     SetPassPercentage(70).           // 0-100
     AddMultipleChoiceQuestion(       // At least 1 question
@@ -169,7 +169,7 @@ func (e ValidationErrors) Error() string {
 ```go
 questionSet, err := builder.Build()
 if err != nil {
-    if validationErrors, ok := err.(goh5p.ValidationErrors); ok {
+    if validationErrors, ok := err.(h5p.ValidationErrors); ok {
         fmt.Println("Multiple validation errors:")
         for _, validationError := range validationErrors {
             fmt.Printf("- %s: %s\n", validationError.Field, validationError.Message)
@@ -188,7 +188,7 @@ if err != nil {
 You can implement custom validation for specific use cases:
 
 ```go
-func validateQuizComplexity(questionSet *goh5p.QuestionSet) error {
+func validateQuizComplexity(questionSet *h5p.QuestionSet) error {
     if len(questionSet.Questions) < 3 {
         return fmt.Errorf("quiz should have at least 3 questions for proper assessment")
     }
@@ -243,8 +243,8 @@ if err := pkg.Validate(); err != nil {
 ### 2. Handle Validation Gracefully
 
 ```go
-func buildQuestionSet(title string, questions []QuestionData) (*goh5p.QuestionSet, error) {
-    builder := goh5p.NewQuestionSetBuilder().SetTitle(title)
+func buildQuestionSet(title string, questions []QuestionData) (*h5p.QuestionSet, error) {
+    builder := h5p.NewQuestionSetBuilder().SetTitle(title)
     
     for i, q := range questions {
         if q.Text == "" {
@@ -292,14 +292,14 @@ func validatePassPercentage(percentage int) error {
 func TestQuestionSetValidation(t *testing.T) {
     tests := []struct {
         name      string
-        builder   func() *goh5p.QuestionSetBuilder
+        builder   func() *h5p.QuestionSetBuilder
         wantError bool
         errorText string
     }{
         {
             name: "valid question set",
-            builder: func() *goh5p.QuestionSetBuilder {
-                return goh5p.NewQuestionSetBuilder().
+            builder: func() *h5p.QuestionSetBuilder {
+                return h5p.NewQuestionSetBuilder().
                     SetTitle("Test Quiz").
                     SetPassPercentage(70).
                     AddMultipleChoiceQuestion("Question?", validAnswers)
@@ -308,8 +308,8 @@ func TestQuestionSetValidation(t *testing.T) {
         },
         {
             name: "missing title",
-            builder: func() *goh5p.QuestionSetBuilder {
-                return goh5p.NewQuestionSetBuilder().
+            builder: func() *h5p.QuestionSetBuilder {
+                return h5p.NewQuestionSetBuilder().
                     SetPassPercentage(70).
                     AddMultipleChoiceQuestion("Question?", validAnswers)
             },
@@ -318,8 +318,8 @@ func TestQuestionSetValidation(t *testing.T) {
         },
         {
             name: "invalid pass percentage",
-            builder: func() *goh5p.QuestionSetBuilder {
-                return goh5p.NewQuestionSetBuilder().
+            builder: func() *h5p.QuestionSetBuilder {
+                return h5p.NewQuestionSetBuilder().
                     SetTitle("Test Quiz").
                     SetPassPercentage(150).  // Invalid
                     AddMultipleChoiceQuestion("Question?", validAnswers)
@@ -367,8 +367,8 @@ func TestCompleteWorkflow(t *testing.T) {
     }
     
     // Create package
-    pkg := goh5p.NewH5PPackage()
-    pkg.SetContent(&goh5p.Content{Params: questionSet})
+    pkg := h5p.NewH5PPackage()
+    pkg.SetContent(&h5p.Content{Params: questionSet})
     
     // Validate package
     if err := pkg.Validate(); err != nil {
@@ -382,7 +382,7 @@ func TestCompleteWorkflow(t *testing.T) {
     }
     
     // Re-load and validate
-    loadedPkg, err := goh5p.LoadH5PPackage(tempFile)
+    loadedPkg, err := h5p.LoadH5PPackage(tempFile)
     if err != nil {
         t.Fatalf("Failed to load package: %v", err)
     }

@@ -27,15 +27,15 @@ example.h5p
 import "github.com/grokify/h5p-go"
 
 // Create a new H5P package
-pkg := goh5p.NewH5PPackage()
+pkg := h5p.NewH5PPackage()
 
 // Set package definition
-packageDef := &goh5p.PackageDefinition{
+packageDef := &h5p.PackageDefinition{
     Title:       "My Interactive Quiz",
     Language:    "en", 
     MainLibrary: "H5P.MultiChoice",
     EmbedTypes:  []string{"div"},
-    PreloadedDependencies: []goh5p.LibraryDependency{
+    PreloadedDependencies: []h5p.LibraryDependency{
         {
             MachineName:  "H5P.MultiChoice",
             MajorVersion: 1,
@@ -59,7 +59,7 @@ params := &schemas.MultiChoiceParams{
     },
 }
 
-content := &goh5p.Content{
+content := &h5p.Content{
     Params: params,
 }
 
@@ -70,16 +70,16 @@ pkg.SetContent(content)
 
 ```go
 // Add the MultiChoice library
-lib := &goh5p.Library{
+lib := &h5p.Library{
     MachineName: "H5P.MultiChoice-1.16",
-    Definition: &goh5p.LibraryDefinition{
+    Definition: &h5p.LibraryDefinition{
         Title:        "Multiple Choice",
         MachineName:  "H5P.MultiChoice", 
         MajorVersion: 1,
         MinorVersion: 16,
         PatchVersion: 4,
         Runnable:     true,
-        CoreAPI: &goh5p.CoreAPI{
+        CoreAPI: &h5p.CoreAPI{
             MajorVersion: 1,
             MinorVersion: 24,
         },
@@ -118,13 +118,13 @@ type PackageDefinition struct {
 ### Example Package Definition
 
 ```go
-packageDef := &goh5p.PackageDefinition{
+packageDef := &h5p.PackageDefinition{
     Title:       "Advanced Programming Quiz",
     Language:    "en",
     MainLibrary: "H5P.QuestionSet",
     EmbedTypes:  []string{"div"},
     
-    PreloadedDependencies: []goh5p.LibraryDependency{
+    PreloadedDependencies: []h5p.LibraryDependency{
         {
             MachineName:  "H5P.QuestionSet",
             MajorVersion: 1,
@@ -138,14 +138,14 @@ packageDef := &goh5p.PackageDefinition{
     },
     
     License: "CC BY-SA",
-    Authors: []goh5p.Author{
+    Authors: []h5p.Author{
         {
             Name: "Your Name",
             Role: "Author",
         },
     },
     
-    Changes: []goh5p.Change{
+    Changes: []h5p.Change{
         {
             Date:        "2024-01-15",
             Author:      "Your Name", 
@@ -185,7 +185,7 @@ type LibraryDefinition struct {
 ### Adding Library Files
 
 ```go
-lib := &goh5p.Library{
+lib := &h5p.Library{
     MachineName: "H5P.MultiChoice-1.16",
     Definition:  libDefinition,
     Files: map[string][]byte{
@@ -231,12 +231,12 @@ type Metadata struct {
 ### Setting Content
 
 ```go
-content := &goh5p.Content{
+content := &h5p.Content{
     Params: questionSetParams,  // Your content parameters
-    Metadata: &goh5p.Metadata{
+    Metadata: &h5p.Metadata{
         Title:   "My Quiz",
         License: "CC BY-SA",
-        Authors: []goh5p.Author{
+        Authors: []h5p.Author{
             {Name: "Your Name", Role: "Author"},
         },
     },
@@ -275,7 +275,7 @@ if err != nil {
 
 ```go
 // Load existing H5P package
-pkg, err := goh5p.LoadH5PPackage("existing-content.h5p")
+pkg, err := h5p.LoadH5PPackage("existing-content.h5p")
 if err != nil {
     log.Fatal("Failed to load package:", err)
 }
@@ -290,7 +290,7 @@ libraries := pkg.GetLibraries()
 
 ```go
 // Load and modify
-pkg, err := goh5p.LoadH5PPackage("quiz.h5p")
+pkg, err := h5p.LoadH5PPackage("quiz.h5p")
 if err != nil {
     log.Fatal(err)
 }
@@ -370,16 +370,16 @@ func main() {
     fmt.Println("Successfully created complete-quiz.h5p")
 }
 
-func createCompletePackage() *goh5p.H5PPackage {
-    pkg := goh5p.NewH5PPackage()
+func createCompletePackage() *h5p.H5PPackage {
+    pkg := h5p.NewH5PPackage()
     
     // Package definition
-    packageDef := &goh5p.PackageDefinition{
+    packageDef := &h5p.PackageDefinition{
         Title:       "Complete Programming Quiz",
         Language:    "en",
         MainLibrary: "H5P.QuestionSet",
         EmbedTypes:  []string{"div"},
-        PreloadedDependencies: []goh5p.LibraryDependency{
+        PreloadedDependencies: []h5p.LibraryDependency{
             {
                 MachineName:  "H5P.QuestionSet",
                 MajorVersion: 1,
@@ -392,7 +392,7 @@ func createCompletePackage() *goh5p.H5PPackage {
             },
         },
         License: "CC BY-SA",
-        Authors: []goh5p.Author{
+        Authors: []h5p.Author{
             {Name: "Quiz Creator", Role: "Author"},
         },
     }
@@ -400,9 +400,9 @@ func createCompletePackage() *goh5p.H5PPackage {
     
     // Create question set content
     questionSet := createQuestionSet()
-    content := &goh5p.Content{
+    content := &h5p.Content{
         Params: questionSet,
-        Metadata: &goh5p.Metadata{
+        Metadata: &h5p.Metadata{
             Title:   "Programming Quiz",
             License: "CC BY-SA",
         },
@@ -415,14 +415,14 @@ func createCompletePackage() *goh5p.H5PPackage {
     return pkg
 }
 
-func createQuestionSet() *goh5p.QuestionSet {
+func createQuestionSet() *h5p.QuestionSet {
     // Create questions using the builder
-    answers := []goh5p.Answer{
-        goh5p.CreateAnswer("Go", true),
-        goh5p.CreateAnswer("JavaScript", false),
+    answers := []h5p.Answer{
+        h5p.CreateAnswer("Go", true),
+        h5p.CreateAnswer("JavaScript", false),
     }
     
-    questionSet, err := goh5p.NewQuestionSetBuilder().
+    questionSet, err := h5p.NewQuestionSetBuilder().
         SetTitle("Programming Knowledge Test").
         SetProgressType("textual").
         SetPassPercentage(70).
@@ -436,11 +436,11 @@ func createQuestionSet() *goh5p.QuestionSet {
     return questionSet
 }
 
-func addLibraries(pkg *goh5p.H5PPackage) {
+func addLibraries(pkg *h5p.H5PPackage) {
     // Add QuestionSet library
-    questionSetLib := &goh5p.Library{
+    questionSetLib := &h5p.Library{
         MachineName: "H5P.QuestionSet-1.20",
-        Definition: &goh5p.LibraryDefinition{
+        Definition: &h5p.LibraryDefinition{
             Title:        "Question Set",
             MachineName:  "H5P.QuestionSet",
             MajorVersion: 1,
@@ -457,9 +457,9 @@ func addLibraries(pkg *goh5p.H5PPackage) {
     pkg.AddLibrary(questionSetLib)
     
     // Add MultiChoice library  
-    multiChoiceLib := &goh5p.Library{
+    multiChoiceLib := &h5p.Library{
         MachineName: "H5P.MultiChoice-1.16",
-        Definition: &goh5p.LibraryDefinition{
+        Definition: &h5p.LibraryDefinition{
             Title:        "Multiple Choice",
             MachineName:  "H5P.MultiChoice",
             MajorVersion: 1,

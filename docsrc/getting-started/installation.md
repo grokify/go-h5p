@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-    builder := goh5p.NewQuestionSetBuilder()
+    builder := h5p.NewQuestionSetBuilder()
     fmt.Println("H5P Go SDK installed successfully!")
     fmt.Printf("Builder created: %T\n", builder)
 }
@@ -42,7 +42,7 @@ go run test.go
 You should see:
 ```
 H5P Go SDK installed successfully!
-Builder created: *goh5p.QuestionSetBuilder
+Builder created: *h5p.QuestionSetBuilder
 ```
 
 ## Development Installation

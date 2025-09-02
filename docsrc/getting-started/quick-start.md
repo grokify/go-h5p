@@ -18,14 +18,14 @@ import (
 
 func main() {
     // Create a question set builder
-    builder := goh5p.NewQuestionSetBuilder()
+    builder := h5p.NewQuestionSetBuilder()
     
     // Define answers for our question
-    answers := []goh5p.Answer{
-        goh5p.CreateAnswer("Paris", true),    // Correct answer
-        goh5p.CreateAnswer("London", false),  // Incorrect
-        goh5p.CreateAnswer("Berlin", false),  // Incorrect
-        goh5p.CreateAnswer("Madrid", false),  // Incorrect
+    answers := []h5p.Answer{
+        h5p.CreateAnswer("Paris", true),    // Correct answer
+        h5p.CreateAnswer("London", false),  // Incorrect
+        h5p.CreateAnswer("Berlin", false),  // Incorrect
+        h5p.CreateAnswer("Madrid", false),  // Incorrect
     }
     
     // Build the question set
@@ -56,31 +56,31 @@ func main() {
 Let's expand our quiz with more questions:
 
 ```go
-func createGeographyQuiz() (*goh5p.QuestionSet, error) {
-    builder := goh5p.NewQuestionSetBuilder()
+func createGeographyQuiz() (*h5p.QuestionSet, error) {
+    builder := h5p.NewQuestionSetBuilder()
     
     // Question 1: Capital of France
-    answers1 := []goh5p.Answer{
-        goh5p.CreateAnswer("Paris", true),
-        goh5p.CreateAnswer("London", false),
-        goh5p.CreateAnswer("Berlin", false),
-        goh5p.CreateAnswer("Madrid", false),
+    answers1 := []h5p.Answer{
+        h5p.CreateAnswer("Paris", true),
+        h5p.CreateAnswer("London", false),
+        h5p.CreateAnswer("Berlin", false),
+        h5p.CreateAnswer("Madrid", false),
     }
     
     // Question 2: Largest country
-    answers2 := []goh5p.Answer{
-        goh5p.CreateAnswer("Russia", true),
-        goh5p.CreateAnswer("China", false),
-        goh5p.CreateAnswer("USA", false),
-        goh5p.CreateAnswer("Canada", false),
+    answers2 := []h5p.Answer{
+        h5p.CreateAnswer("Russia", true),
+        h5p.CreateAnswer("China", false),
+        h5p.CreateAnswer("USA", false),
+        h5p.CreateAnswer("Canada", false),
     }
     
     // Question 3: Longest river
-    answers3 := []goh5p.Answer{
-        goh5p.CreateAnswer("Nile", true),
-        goh5p.CreateAnswer("Amazon", false),
-        goh5p.CreateAnswer("Mississippi", false),
-        goh5p.CreateAnswer("Yangtze", false),
+    answers3 := []h5p.Answer{
+        h5p.CreateAnswer("Nile", true),
+        h5p.CreateAnswer("Amazon", false),
+        h5p.CreateAnswer("Mississippi", false),
+        h5p.CreateAnswer("Yangtze", false),
     }
     
     return builder.
@@ -100,11 +100,11 @@ func createGeographyQuiz() (*goh5p.QuestionSet, error) {
 Enhance the user experience with feedback based on performance:
 
 ```go
-func createQuizWithFeedback() (*goh5p.QuestionSet, error) {
-    builder := goh5p.NewQuestionSetBuilder()
+func createQuizWithFeedback() (*h5p.QuestionSet, error) {
+    builder := h5p.NewQuestionSetBuilder()
     
     // Create feedback ranges
-    feedbackRanges := []goh5p.OverallFeedback{
+    feedbackRanges := []h5p.OverallFeedback{
         {
             From: 0,
             To:   40,
@@ -139,7 +139,7 @@ func createQuizWithFeedback() (*goh5p.QuestionSet, error) {
 Always validate your content before deployment:
 
 ```go
-func validateAndExport(questionSet *goh5p.QuestionSet) error {
+func validateAndExport(questionSet *h5p.QuestionSet) error {
     // Validate the question set
     if err := questionSet.Validate(); err != nil {
         return fmt.Errorf("validation failed: %w", err)
@@ -190,30 +190,30 @@ func main() {
     }
 }
 
-func createCompleteQuiz() (*goh5p.QuestionSet, error) {
-    builder := goh5p.NewQuestionSetBuilder()
+func createCompleteQuiz() (*h5p.QuestionSet, error) {
+    builder := h5p.NewQuestionSetBuilder()
     
     // Geography questions with answers
     questions := []struct {
         question string
-        answers  []goh5p.Answer
+        answers  []h5p.Answer
     }{
         {
             "What is the capital of France?",
-            []goh5p.Answer{
-                goh5p.CreateAnswer("Paris", true),
-                goh5p.CreateAnswer("London", false),
-                goh5p.CreateAnswer("Berlin", false),
-                goh5p.CreateAnswer("Madrid", false),
+            []h5p.Answer{
+                h5p.CreateAnswer("Paris", true),
+                h5p.CreateAnswer("London", false),
+                h5p.CreateAnswer("Berlin", false),
+                h5p.CreateAnswer("Madrid", false),
             },
         },
         {
             "Which is the largest ocean?",
-            []goh5p.Answer{
-                goh5p.CreateAnswer("Pacific", true),
-                goh5p.CreateAnswer("Atlantic", false),
-                goh5p.CreateAnswer("Indian", false),
-                goh5p.CreateAnswer("Arctic", false),
+            []h5p.Answer{
+                h5p.CreateAnswer("Pacific", true),
+                h5p.CreateAnswer("Atlantic", false),
+                h5p.CreateAnswer("Indian", false),
+                h5p.CreateAnswer("Arctic", false),
             },
         },
     }
@@ -231,7 +231,7 @@ func createCompleteQuiz() (*goh5p.QuestionSet, error) {
     }
     
     // Add feedback
-    feedbackRanges := []goh5p.OverallFeedback{
+    feedbackRanges := []h5p.OverallFeedback{
         {From: 0, To: 50, Feedback: "Keep studying geography!"},
         {From: 51, To: 80, Feedback: "Good knowledge of geography!"},
         {From: 81, To: 100, Feedback: "Excellent! You're a geography expert!"},
@@ -240,7 +240,7 @@ func createCompleteQuiz() (*goh5p.QuestionSet, error) {
     return builder.AddOverallFeedback(feedbackRanges).Build()
 }
 
-func validateAndExport(questionSet *goh5p.QuestionSet) error {
+func validateAndExport(questionSet *h5p.QuestionSet) error {
     // Validate
     if err := questionSet.Validate(); err != nil {
         return err

@@ -38,14 +38,14 @@ import (
 
 func main() {
     // Create answers
-    answers := []goh5p.Answer{
-        goh5p.CreateAnswer("Paris", true),
-        goh5p.CreateAnswer("London", false),
-        goh5p.CreateAnswer("Berlin", false),
+    answers := []h5p.Answer{
+        h5p.CreateAnswer("Paris", true),
+        h5p.CreateAnswer("London", false),
+        h5p.CreateAnswer("Berlin", false),
     }
     
     // Build question set
-    questionSet, err := goh5p.NewQuestionSetBuilder().
+    questionSet, err := h5p.NewQuestionSetBuilder().
         SetTitle("Geography Quiz").
         SetProgressType("textual").
         SetPassPercentage(60).
@@ -80,7 +80,7 @@ params := &schemas.MultiChoiceParams{
     },
 }
 
-question := goh5p.NewMultiChoiceQuestion(params)
+question := h5p.NewMultiChoiceQuestion(params)
 ```
 
 ## 📚 Documentation

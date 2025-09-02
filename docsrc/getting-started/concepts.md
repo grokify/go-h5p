@@ -54,7 +54,7 @@ package.h5p
 The SDK uses the builder pattern for creating content:
 
 ```go
-questionSet, err := goh5p.NewQuestionSetBuilder().
+questionSet, err := h5p.NewQuestionSetBuilder().
     SetTitle("My Quiz").
     SetPassPercentage(80).
     AddMultipleChoiceQuestion("Question?", answers).
@@ -75,7 +75,7 @@ The SDK provides two levels of type safety:
 
 ```go
 // Generic approach
-question := goh5p.Question{
+question := h5p.Question{
     Library: "H5P.MultiChoice 1.16",
     Params:  map[string]interface{}{"question": "What is 2+2?"},
 }

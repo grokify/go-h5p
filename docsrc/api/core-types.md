@@ -365,11 +365,11 @@ type JSONMarshaler interface {
 ### Basic Question Set Creation
 
 ```go
-builder := goh5p.NewQuestionSetBuilder()
+builder := h5p.NewQuestionSetBuilder()
 
-answers := []goh5p.Answer{
-    goh5p.CreateAnswer("Correct", true),
-    goh5p.CreateAnswer("Wrong", false),
+answers := []h5p.Answer{
+    h5p.CreateAnswer("Correct", true),
+    h5p.CreateAnswer("Wrong", false),
 }
 
 questionSet, err := builder.
@@ -386,9 +386,9 @@ if err != nil {
 ### Package Creation
 
 ```go
-pkg := goh5p.NewH5PPackage()
+pkg := h5p.NewH5PPackage()
 
-packageDef := &goh5p.PackageDefinition{
+packageDef := &h5p.PackageDefinition{
     Title:       "My Package",
     Language:    "en",
     MainLibrary: "H5P.QuestionSet",
@@ -396,7 +396,7 @@ packageDef := &goh5p.PackageDefinition{
 }
 
 pkg.SetPackageDefinition(packageDef)
-pkg.SetContent(&goh5p.Content{Params: questionSet})
+pkg.SetContent(&h5p.Content{Params: questionSet})
 
 err := pkg.CreateZipFile("package.h5p")
 if err != nil {

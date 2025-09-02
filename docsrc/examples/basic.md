@@ -38,35 +38,35 @@ func main() {
     fmt.Printf("Pass percentage: %d%%\n", quiz.PassPercentage)
 }
 
-func createGeographyQuiz() *goh5p.QuestionSet {
-    builder := goh5p.NewQuestionSetBuilder()
+func createGeographyQuiz() *h5p.QuestionSet {
+    builder := h5p.NewQuestionSetBuilder()
     
     // Question 1: Capital cities
-    capitalAnswers := []goh5p.Answer{
-        goh5p.CreateAnswerWithFeedback("Paris", true, "Correct! Paris is the capital of France."),
-        goh5p.CreateAnswerWithFeedback("London", false, "London is the capital of the United Kingdom."),
-        goh5p.CreateAnswerWithFeedback("Berlin", false, "Berlin is the capital of Germany."),
-        goh5p.CreateAnswerWithFeedback("Madrid", false, "Madrid is the capital of Spain."),
+    capitalAnswers := []h5p.Answer{
+        h5p.CreateAnswerWithFeedback("Paris", true, "Correct! Paris is the capital of France."),
+        h5p.CreateAnswerWithFeedback("London", false, "London is the capital of the United Kingdom."),
+        h5p.CreateAnswerWithFeedback("Berlin", false, "Berlin is the capital of Germany."),
+        h5p.CreateAnswerWithFeedback("Madrid", false, "Madrid is the capital of Spain."),
     }
     
     // Question 2: Continents
-    continentAnswers := []goh5p.Answer{
-        goh5p.CreateAnswerWithFeedback("Asia", true, "Correct! Asia is the largest continent."),
-        goh5p.CreateAnswerWithFeedback("Africa", false, "Africa is the second largest continent."),
-        goh5p.CreateAnswerWithFeedback("North America", false, "North America is the third largest."),
-        goh5p.CreateAnswerWithFeedback("Europe", false, "Europe is much smaller than Asia."),
+    continentAnswers := []h5p.Answer{
+        h5p.CreateAnswerWithFeedback("Asia", true, "Correct! Asia is the largest continent."),
+        h5p.CreateAnswerWithFeedback("Africa", false, "Africa is the second largest continent."),
+        h5p.CreateAnswerWithFeedback("North America", false, "North America is the third largest."),
+        h5p.CreateAnswerWithFeedback("Europe", false, "Europe is much smaller than Asia."),
     }
     
     // Question 3: Oceans
-    oceanAnswers := []goh5p.Answer{
-        goh5p.CreateAnswerWithFeedback("Pacific Ocean", true, "Correct! The Pacific is the largest ocean."),
-        goh5p.CreateAnswerWithFeedback("Atlantic Ocean", false, "The Atlantic is the second largest."),
-        goh5p.CreateAnswerWithFeedback("Indian Ocean", false, "The Indian Ocean is the third largest."),
-        goh5p.CreateAnswerWithFeedback("Arctic Ocean", false, "The Arctic Ocean is the smallest."),
+    oceanAnswers := []h5p.Answer{
+        h5p.CreateAnswerWithFeedback("Pacific Ocean", true, "Correct! The Pacific is the largest ocean."),
+        h5p.CreateAnswerWithFeedback("Atlantic Ocean", false, "The Atlantic is the second largest."),
+        h5p.CreateAnswerWithFeedback("Indian Ocean", false, "The Indian Ocean is the third largest."),
+        h5p.CreateAnswerWithFeedback("Arctic Ocean", false, "The Arctic Ocean is the smallest."),
     }
     
     // Overall feedback based on performance
-    feedback := []goh5p.OverallFeedback{
+    feedback := []h5p.OverallFeedback{
         {
             From:     0,
             To:       40,
@@ -131,15 +131,15 @@ func main() {
     fmt.Printf("Original questions: %d\n", len(quiz.Questions))
     
     // Add a new question
-    newAnswers := []goh5p.Answer{
-        goh5p.CreateAnswer("7", false),
-        goh5p.CreateAnswer("8", true),
-        goh5p.CreateAnswer("9", false),
-        goh5p.CreateAnswer("10", false),
+    newAnswers := []h5p.Answer{
+        h5p.CreateAnswer("7", false),
+        h5p.CreateAnswer("8", true),
+        h5p.CreateAnswer("9", false),
+        h5p.CreateAnswer("10", false),
     }
     
     // Create new question
-    newQuestion := goh5p.Question{
+    newQuestion := h5p.Question{
         Library: "H5P.MultiChoice 1.16",
         Params: map[string]interface{}{
             "question": "What is 4 + 4?",
@@ -172,13 +172,13 @@ func main() {
     fmt.Printf("Updated quiz saved with %d questions\n", len(quiz.Questions))
 }
 
-func loadQuizFromFile(filename string) (*goh5p.QuestionSet, error) {
+func loadQuizFromFile(filename string) (*h5p.QuestionSet, error) {
     jsonData, err := os.ReadFile(filename)
     if err != nil {
         return nil, err
     }
     
-    quiz, err := goh5p.FromJSON(jsonData)
+    quiz, err := h5p.FromJSON(jsonData)
     if err != nil {
         return nil, err
     }
@@ -191,7 +191,7 @@ func loadQuizFromFile(filename string) (*goh5p.QuestionSet, error) {
     return quiz, nil
 }
 
-func convertAnswersToParams(answers []goh5p.Answer) []map[string]interface{} {
+func convertAnswersToParams(answers []h5p.Answer) []map[string]interface{} {
     params := make([]map[string]interface{}, len(answers))
     for i, answer := range answers {
         params[i] = map[string]interface{}{
@@ -211,18 +211,18 @@ func convertAnswersToParams(answers []goh5p.Answer) []map[string]interface{} {
 ### True/False Questions
 
 ```go
-func createTrueFalseQuiz() *goh5p.QuestionSet {
-    builder := goh5p.NewQuestionSetBuilder()
+func createTrueFalseQuiz() *h5p.QuestionSet {
+    builder := h5p.NewQuestionSetBuilder()
     
     // True/False questions have exactly 2 answers
-    question1Answers := []goh5p.Answer{
-        goh5p.CreateAnswerWithFeedback("True", true, "Correct! The Earth is indeed round."),
-        goh5p.CreateAnswerWithFeedback("False", false, "Incorrect. The Earth is approximately spherical."),
+    question1Answers := []h5p.Answer{
+        h5p.CreateAnswerWithFeedback("True", true, "Correct! The Earth is indeed round."),
+        h5p.CreateAnswerWithFeedback("False", false, "Incorrect. The Earth is approximately spherical."),
     }
     
-    question2Answers := []goh5p.Answer{
-        goh5p.CreateAnswerWithFeedback("True", false, "Incorrect. Water boils at 100°C, not freezes."),
-        goh5p.CreateAnswerWithFeedback("False", true, "Correct! Water freezes at 0°C."),
+    question2Answers := []h5p.Answer{
+        h5p.CreateAnswerWithFeedback("True", false, "Incorrect. Water boils at 100°C, not freezes."),
+        h5p.CreateAnswerWithFeedback("False", true, "Correct! Water freezes at 0°C."),
     }
     
     questionSet, err := builder.
@@ -245,23 +245,23 @@ func createTrueFalseQuiz() *goh5p.QuestionSet {
 ### Multi-Select Questions
 
 ```go
-func createMultiSelectQuiz() *goh5p.QuestionSet {
-    builder := goh5p.NewQuestionSetBuilder()
+func createMultiSelectQuiz() *h5p.QuestionSet {
+    builder := h5p.NewQuestionSetBuilder()
     
     // Multiple correct answers
-    programmingAnswers := []goh5p.Answer{
-        goh5p.CreateAnswer("Go", true),        // Correct
-        goh5p.CreateAnswer("Python", true),    // Correct  
-        goh5p.CreateAnswer("Java", true),      // Correct
-        goh5p.CreateAnswer("HTML", false),     // Not a programming language
-        goh5p.CreateAnswer("CSS", false),      // Not a programming language
+    programmingAnswers := []h5p.Answer{
+        h5p.CreateAnswer("Go", true),        // Correct
+        h5p.CreateAnswer("Python", true),    // Correct  
+        h5p.CreateAnswer("Java", true),      // Correct
+        h5p.CreateAnswer("HTML", false),     // Not a programming language
+        h5p.CreateAnswer("CSS", false),      // Not a programming language
     }
     
     // Single correct answer for comparison
-    capitalAnswers := []goh5p.Answer{
-        goh5p.CreateAnswer("Tokyo", true),
-        goh5p.CreateAnswer("Osaka", false),
-        goh5p.CreateAnswer("Kyoto", false),
+    capitalAnswers := []h5p.Answer{
+        h5p.CreateAnswer("Tokyo", true),
+        h5p.CreateAnswer("Osaka", false),
+        h5p.CreateAnswer("Kyoto", false),
     }
     
     questionSet, err := builder.
@@ -286,8 +286,8 @@ func createMultiSelectQuiz() *goh5p.QuestionSet {
 ### Comprehensive Error Handling
 
 ```go
-func createQuizWithErrorHandling() (*goh5p.QuestionSet, error) {
-    builder := goh5p.NewQuestionSetBuilder()
+func createQuizWithErrorHandling() (*h5p.QuestionSet, error) {
+    builder := h5p.NewQuestionSetBuilder()
     
     // Validate inputs before building
     title := "Programming Quiz"
@@ -332,8 +332,8 @@ func createQuizWithErrorHandling() (*goh5p.QuestionSet, error) {
     return questionSet, nil
 }
 
-func createValidatedAnswers() ([]goh5p.Answer, error) {
-    answers := []goh5p.Answer{
+func createValidatedAnswers() ([]h5p.Answer, error) {
+    answers := []h5p.Answer{
         {Text: "A programming language", Correct: true},
         {Text: "A database", Correct: false},
         {Text: "An operating system", Correct: false},
@@ -432,16 +432,16 @@ type AnswerData struct {
 func buildQuizFromData(data struct {
     title     string
     questions []QuestionData
-}) (*goh5p.QuestionSet, error) {
-    builder := goh5p.NewQuestionSetBuilder().
+}) (*h5p.QuestionSet, error) {
+    builder := h5p.NewQuestionSetBuilder().
         SetTitle(data.title).
         SetProgressType("textual").
         SetPassPercentage(60)
     
     for _, q := range data.questions {
-        answers := make([]goh5p.Answer, len(q.answers))
+        answers := make([]h5p.Answer, len(q.answers))
         for i, a := range q.answers {
-            answers[i] = goh5p.Answer{
+            answers[i] = h5p.Answer{
                 Text:     a.text,
                 Correct:  a.correct,
                 Feedback: a.feedback,
@@ -454,7 +454,7 @@ func buildQuizFromData(data struct {
     return builder.Build()
 }
 
-func exportQuiz(quiz *goh5p.QuestionSet, filename string) error {
+func exportQuiz(quiz *h5p.QuestionSet, filename string) error {
     jsonData, err := quiz.ToJSON()
     if err != nil {
         return err
@@ -490,15 +490,15 @@ func createQuizHandler(w http.ResponseWriter, r *http.Request) {
     }
     
     // Build quiz from request
-    builder := goh5p.NewQuestionSetBuilder().
+    builder := h5p.NewQuestionSetBuilder().
         SetTitle(request.Title).
         SetProgressType("textual").
         SetPassPercentage(request.PassPercentage)
     
     for _, q := range request.Questions {
-        answers := make([]goh5p.Answer, len(q.Answers))
+        answers := make([]h5p.Answer, len(q.Answers))
         for i, a := range q.Answers {
-            answers[i] = goh5p.Answer{
+            answers[i] = h5p.Answer{
                 Text:     a.Text,
                 Correct:  a.Correct,
                 Feedback: a.Feedback,

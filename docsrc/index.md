@@ -36,13 +36,13 @@ import (
 
 func main() {
     // Create a question set using the builder pattern
-    builder := goh5p.NewQuestionSetBuilder()
+    builder := h5p.NewQuestionSetBuilder()
     
-    answers := []goh5p.Answer{
-        goh5p.CreateAnswer("Paris", true),
-        goh5p.CreateAnswer("London", false),
-        goh5p.CreateAnswer("Berlin", false),
-        goh5p.CreateAnswer("Madrid", false),
+    answers := []h5p.Answer{
+        h5p.CreateAnswer("Paris", true),
+        h5p.CreateAnswer("London", false),
+        h5p.CreateAnswer("Berlin", false),
+        h5p.CreateAnswer("Madrid", false),
     }
     
     questionSet, err := builder.

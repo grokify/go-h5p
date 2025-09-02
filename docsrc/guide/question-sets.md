@@ -18,7 +18,7 @@ A question set consists of:
 The recommended way to create question sets is using the fluent builder API:
 
 ```go
-builder := goh5p.NewQuestionSetBuilder()
+builder := h5p.NewQuestionSetBuilder()
 
 questionSet, err := builder.
     SetTitle("My Quiz").
@@ -52,7 +52,7 @@ builder.AddMultipleChoiceQuestion("What is the capital?", answers)
 
 #### Feedback Configuration
 ```go
-feedbackRanges := []goh5p.OverallFeedback{
+feedbackRanges := []h5p.OverallFeedback{
     {From: 0, To: 40, Feedback: "Keep studying!"},
     {From: 41, To: 70, Feedback: "Good job!"},
     {From: 71, To: 100, Feedback: "Excellent work!"},
@@ -69,17 +69,17 @@ Support both single-answer and multi-answer questions:
 
 ```go
 // Single correct answer
-answers := []goh5p.Answer{
-    goh5p.CreateAnswer("Correct answer", true),
-    goh5p.CreateAnswer("Wrong answer 1", false),
-    goh5p.CreateAnswer("Wrong answer 2", false),
+answers := []h5p.Answer{
+    h5p.CreateAnswer("Correct answer", true),
+    h5p.CreateAnswer("Wrong answer 1", false),
+    h5p.CreateAnswer("Wrong answer 2", false),
 }
 
 // Multiple correct answers  
-answers := []goh5p.Answer{
-    goh5p.CreateAnswer("Correct 1", true),
-    goh5p.CreateAnswer("Correct 2", true),
-    goh5p.CreateAnswer("Wrong", false),
+answers := []h5p.Answer{
+    h5p.CreateAnswer("Correct 1", true),
+    h5p.CreateAnswer("Correct 2", true),
+    h5p.CreateAnswer("Wrong", false),
 }
 
 builder.AddMultipleChoiceQuestion("Question text", answers)
@@ -97,7 +97,7 @@ type Answer struct {
     Weight   float64 `json:"weight,omitempty"`
 }
 
-answer := goh5p.Answer{
+answer := h5p.Answer{
     Text:     "Paris",
     Correct:  true,
     Feedback: "Correct! Paris is the capital of France.",
@@ -120,7 +120,7 @@ builder.SetPassPercentage(75) // 75% required to pass
 Provide different feedback messages based on score ranges:
 
 ```go
-feedback := []goh5p.OverallFeedback{
+feedback := []h5p.OverallFeedback{
     {
         From:     0,
         To:       30,
@@ -207,7 +207,7 @@ if err != nil {
     log.Fatal(err)
 }
 
-questionSet, err := goh5p.FromJSON(jsonData)
+questionSet, err := h5p.FromJSON(jsonData)
 if err != nil {
     log.Fatal(err)
 }
@@ -262,11 +262,11 @@ func main() {
     fmt.Println("Geography quiz created successfully!")
 }
 
-func createGeographyQuiz() (*goh5p.QuestionSet, error) {
-    builder := goh5p.NewQuestionSetBuilder()
+func createGeographyQuiz() (*h5p.QuestionSet, error) {
+    builder := h5p.NewQuestionSetBuilder()
     
     // Question 1: Capitals
-    capitals := []goh5p.Answer{
+    capitals := []h5p.Answer{
         {Text: "Paris", Correct: true, Feedback: "Correct!"},
         {Text: "London", Correct: false, Feedback: "London is the capital of the UK."},
         {Text: "Berlin", Correct: false, Feedback: "Berlin is the capital of Germany."},
@@ -274,7 +274,7 @@ func createGeographyQuiz() (*goh5p.QuestionSet, error) {
     }
     
     // Question 2: Geography
-    continents := []goh5p.Answer{
+    continents := []h5p.Answer{
         {Text: "Asia", Correct: true, Feedback: "Correct! Asia is the largest continent."},
         {Text: "Africa", Correct: false, Feedback: "Africa is the second largest."},
         {Text: "North America", Correct: false, Feedback: "North America is the third largest."},
@@ -282,7 +282,7 @@ func createGeographyQuiz() (*goh5p.QuestionSet, error) {
     }
     
     // Feedback ranges
-    feedback := []goh5p.OverallFeedback{
+    feedback := []h5p.OverallFeedback{
         {From: 0, To: 50, Feedback: "Keep studying geography!"},
         {From: 51, To: 80, Feedback: "Good knowledge of world geography!"},
         {From: 81, To: 100, Feedback: "Excellent! You're a geography expert!"},
