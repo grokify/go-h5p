@@ -316,13 +316,35 @@ err = questionSet.Validate()
 
 The library includes official H5P schemas in the `schemas/` directory:
 
-- `schemas/multichoice-semantics.json` - Official H5P MultiChoice schema
+- `schemas/multichoice_semantics.json` - Official H5P MultiChoice schema
+- `schemas/essay_semantics.json` - Official H5P Essay schema
+- `schemas/truefalse_semantics.json` - Official H5P True/False schema
 - `schemas/multichoice_types.go` - Go struct implementation
+
+### H5P Semantics Format
+
+The library now includes a standardized Go implementation of the H5P semantics format in the `semantics/` directory:
+
+- `semantics/types.go` - Universal Go structs for H5P semantics definition
+
+The H5P semantics format is a standardized JSON schema used across all H5P content types to define form fields, validation rules, and UI behaviors. Our Go implementation supports all semantic field types including:
+
+- **Field Types**: `group`, `text`, `boolean`, `select`, `list`, `number`, `library`
+- **Common Attributes**: `name`, `type`, `label`, `importance`, `optional`, `default`
+- **Advanced Features**: Conditional visibility (`showWhen`), nested structures, validation rules
+- **UI Configuration**: Widget types, placeholder text, field descriptions
 
 These are defined by H5P here:
 
-1. [H5P `semantics.json` on GitHub](https://github.com/h5p/h5p-multi-choice/blob/master/semantics.json).
-1. [H5P `github.com/h5p/h5p-multi-choice` project](https://github.com/h5p/h5p-multi-choice)
+1. True-False
+    1. [H5P `github.com/h5p/h5p-true-false` project](https://github.com/h5p/h5p-true-false)
+    1. [H5P true-false `semantics.json` on GitHub](https://github.com/h5p/h5p-true-false/blob/master/semantics.json)
+1. Multiple-Choice
+    1. [H5P `github.com/h5p/h5p-multi-choice` project](https://github.com/h5p/h5p-multi-choice)
+    1. [H5P multichoice `semantics.json` on GitHub](https://github.com/h5p/h5p-multi-choice/blob/master/semantics.json)
+1. Essay
+    1. [H5P `github.com/otacke/h5p-essay` project](https://github.com/otacke/h5p-essay)
+    1. [H5P essay `semantics.json` on GitHub](https://github.com/otacke/h5p-essay/blob/master/semantics.json)
 
 ### Question Types
 
@@ -345,8 +367,12 @@ Currently supported question types:
 ```
 h5p-go/
 ├── schemas/                          # Official H5P schemas
-│   ├── multichoice-semantics.json   # H5P MultiChoice schema
+│   ├── multichoice_semantics.json   # H5P MultiChoice schema
+│   ├── essay_semantics.json         # H5P Essay schema
+│   ├── truefalse_semantics.json     # H5P True/False schema
 │   └── multichoice_types.go         # Go types for MultiChoice
+├── semantics/                       # H5P semantics format
+│   └── types.go                     # Universal semantics Go structs
 ├── testdata/                        # Test data files
 │   ├── content.json                 # Sample content
 │   ├── h5p.json                     # Sample package definition

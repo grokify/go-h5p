@@ -1,6 +1,8 @@
 package schemas
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // MultiChoiceParams represents the parameters for H5P.MultiChoice content type
 // This struct is generated from the official H5P MultiChoice semantics.json schema
