@@ -1,4 +1,4 @@
-package goh5p
+package h5p
 
 import (
 	"archive/zip"

@@ -6,7 +6,7 @@
 [![Docs][docs-godoc-svg]][docs-godoc-url]
 [![License][license-svg]][license-url]
 
-A comprehensive Go library for creating, manipulating, and validating H5P (HTML5 Package) content, with full support for the official H5P file format and schemas.
+A Go library for creating, manipulating, and validating H5P (HTML5 Package) content, with support for the official H5P file format and schemas.
 
 ## ✨ Features
 
@@ -21,7 +21,7 @@ A comprehensive Go library for creating, manipulating, and validating H5P (HTML5
 ## 📥 Installation
 
 ```bash
-go get github.com/grokify/go-h5p
+go get github.com/grokify/h5p-go
 ```
 
 ## 🚀 Quick Start
@@ -35,7 +35,7 @@ import (
     "fmt"
     "log"
     
-    "github.com/grokify/go-h5p"
+    "github.com/grokify/h5p-go"
 )
 
 func main() {
@@ -76,8 +76,8 @@ import (
     "fmt"
     "log"
     
-    "github.com/grokify/go-h5p"
-    "github.com/grokify/go-h5p/schemas"
+    "github.com/grokify/h5p-go"
+    "github.com/grokify/h5p-go/schemas"
 )
 
 func main() {
@@ -129,7 +129,7 @@ import (
     "log"
     "os"
     
-    "github.com/grokify/go-h5p"
+    "github.com/grokify/h5p-go"
 )
 
 func main() {
@@ -184,8 +184,8 @@ package main
 import (
     "log"
     
-    "github.com/grokify/go-h5p"
-    "github.com/grokify/go-h5p/schemas"
+    "github.com/grokify/h5p-go"
+    "github.com/grokify/h5p-go/schemas"
 )
 
 func main() {
@@ -343,7 +343,7 @@ Currently supported question types:
 ## 📁 File Structure
 
 ```
-go-h5p/
+h5p-go/
 ├── schemas/                          # Official H5P schemas
 │   ├── multichoice-semantics.json   # H5P MultiChoice schema
 │   └── multichoice_types.go         # Go types for MultiChoice
@@ -431,15 +431,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Integration with H5P hosting platforms
 - [ ] Performance optimizations for large content packages
 
- [build-status-svg]: https://github.com/grokify/go-h5p/actions/workflows/ci.yaml/badge.svg?branch=main
- [build-status-url]: https://github.com/grokify/go-h5p/actions/workflows/ci.yaml
- [lint-status-svg]: https://github.com/grokify/go-h5p/actions/workflows/lint.yaml/badge.svg?branch=main
- [lint-status-url]: https://github.com/grokify/go-h5p/actions/workflows/lint.yaml
- [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-h5p
- [goreport-url]: https://goreportcard.com/report/github.com/grokify/go-h5p
- [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/go-h5p
- [docs-godoc-url]: https://pkg.go.dev/github.com/grokify/go-h5p
+ [build-status-svg]: https://github.com/grokify/h5p-go/actions/workflows/ci.yaml/badge.svg?branch=main
+ [build-status-url]: https://github.com/grokify/h5p-go/actions/workflows/ci.yaml
+ [lint-status-svg]: https://github.com/grokify/h5p-go/actions/workflows/lint.yaml/badge.svg?branch=main
+ [lint-status-url]: https://github.com/grokify/h5p-go/actions/workflows/lint.yaml
+ [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/h5p-go
+ [goreport-url]: https://goreportcard.com/report/github.com/grokify/h5p-go
+ [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/h5p-go
+ [docs-godoc-url]: https://pkg.go.dev/github.com/grokify/h5p-go
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-url]: https://github.com/grokify/go-h5p/blob/master/LICENSE
- [used-by-svg]: https://sourcegraph.com/github.com/grokify/go-h5p/-/badge.svg
- [used-by-url]: https://sourcegraph.com/github.com/grokify/go-h5p?badge
+ [license-url]: https://github.com/grokify/h5p-go/blob/master/LICENSE
+ [used-by-svg]: https://sourcegraph.com/github.com/grokify/h5p-go/-/badge.svg
+ [used-by-url]: https://sourcegraph.com/github.com/grokify/h5p-go?badge

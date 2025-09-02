@@ -1,10 +1,10 @@
-package goh5p
+package h5p
 
 import (
 	"encoding/json"
 	"testing"
 
-	"github.com/grokify/go-h5p/schemas"
+	"github.com/grokify/h5p-go/schemas"
 )
 
 func TestTypedMultiChoiceQuestion(t *testing.T) {

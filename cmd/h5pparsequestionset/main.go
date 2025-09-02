@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	goh5p "github.com/grokify/go-h5p"
+	h5p "github.com/grokify/h5p-go"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 	}
 
 	// Parse JSON into QuestionSet
-	questionSet, err := goh5p.FromJSON(jsonData)
+	questionSet, err := h5p.FromJSON(jsonData)
 	if err != nil {
 		log.Fatal(err)
 	}
